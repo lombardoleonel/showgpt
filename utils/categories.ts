@@ -1,0 +1,22 @@
+export const categories = [
+  "Acción",
+  "Animación",
+  "Anime",
+  "Aventura",
+  "Biografía",
+  "Ciencia ficción",
+  "Comedia",
+  "Comedia romántica",
+  "Crimen",
+  "Documental",
+  "Drama",
+  "Familia",
+  "Fantasía",
+  "Horror",
+  "Indie",
+  "Misterio",
+  "Musical",
+  "Policíaco",
+  "Romance",
+  "Thriller"
+];

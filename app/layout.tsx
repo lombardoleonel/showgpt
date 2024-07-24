@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body className="relative flex justify-center items-center w-full min-h-screen h-full p-8 bg-black text-white">
         <Toaster expand={true}/>
         <div className="absolute inset-0 -z-10 h-full w-full bg-black bg-[linear-gradient(to_right,#0f0f0f_1px,transparent_1px),linear-gradient(to_bottom,#0f0f0f_1px,transparent_1px)] bg-[size:6rem_4rem]">

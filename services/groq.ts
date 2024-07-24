@@ -21,6 +21,7 @@ export default async function createQuery(categories: Array<string>, details: st
                 content: prompt
             }
         ],
+        temperature: 0.75,
         frequencyPenalty: 2
     })
 

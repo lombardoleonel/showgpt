@@ -8,6 +8,6 @@ export default function ShowSavedAnswersButton(){
 
     return <PrimaryButton type="button" onClick={() => setShowSavedAnswers(true)}>
         <OutlineLikeIcon/>
-        <span className="text-nowrap">Ver mis respuestas guardadas</span>
+        <span className="text-nowrap">Respuestas guardadas</span>
     </PrimaryButton>
 }

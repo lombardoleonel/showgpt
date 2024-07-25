@@ -12,7 +12,7 @@ type GlobalStore = {
     setSavedAnswers: (answer: string | string[]) => void,
     showSavedAnswers: boolean,
     setShowSavedAnswers: (state: boolean) => void,
-    response: string
+    response: string | undefined,
     setResponse: (response: string) => void
 }
 

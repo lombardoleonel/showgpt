@@ -8,7 +8,7 @@ export default function SavedAnswers(){
     const { savedAnswers } = usePersistStore();
     
     return savedAnswers && savedAnswers.length
-        ? <section className="flex flex-col items-center gap-8 max-w-[1000px] w-full">
+        ? <section className="flex flex-col items-center gap-8 max-w-[800px] w-full">
             <div className="flex flex-col gap-4 w-full">
                 { savedAnswers.toReversed().map((answer, index) => <AnswerCard key={index} answer={answer}/>) }
             </div>

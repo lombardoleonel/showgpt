@@ -18,5 +18,6 @@ export const categories = [
   "Musical",
   "Policíaco",
   "Romance",
+  "Suspenso",
   "Thriller"
 ];

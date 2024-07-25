@@ -2,6 +2,8 @@ import { create, StateCreator }from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 type GlobalStore = {
+    loading: boolean,
+    setLoading: (state: boolean) => void,
     selectedCategories: string[],
     setSelectedCategories: (category: string | string[]) => void,
     showCategories: boolean,
@@ -17,6 +19,8 @@ type GlobalStore = {
 }
 
 export const useGlobalStore = create<GlobalStore>(set => ({
+    loading: false,
+    setLoading: (value: boolean) => set(state => ({ loading: value })),
     selectedCategories: [],
     setSelectedCategories: (category: string | string[]) => set(state =>
         Array.isArray(category)

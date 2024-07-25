@@ -12,9 +12,12 @@ export default function HomeForm(){
     const { selectedCategories, setSelectedCategories } = useGlobalStore();
     const { showSavedAnswers } = useGlobalStore();
     const { setResponse } = useGlobalStore();
+    const { setLoading } = useGlobalStore();
 
     return <form action={async (formData: FormData) => {
         if(!selectedCategories.length) return toast.error("Debes seleccionar al menos una categoría.");
+
+        setLoading(true);
 
         const details = formData.get("details") as string;
 
@@ -27,6 +30,7 @@ export default function HomeForm(){
         }finally{
             setSelectedCategories([]);
             setShowCategories(false);
+            setLoading(false)
         }
       }} className="flex flex-col items-center gap-4">
         {

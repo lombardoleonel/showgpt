@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 import { Toaster } from "sonner";
 import Link from "next/link";
+import "./globals.css";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_35%,#e6004350,transparent)]"></div>
         </div>
         {children}
+        <Analytics/>
         <footer>
           <p className="flex gap-1 text-center text-sm font-semibold">
             <span className="text-white text-opacity-25">Developed by</span>

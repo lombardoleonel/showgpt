@@ -12,6 +12,8 @@ export default function ResponseButtons(){
     const { setShowCategories } = useGlobalStore();
 
     const saveAnswer = () => {
+        if(!response) return;
+
         setSavedAnswers(response);
 
         toast.success("Respuesta guardada.");
@@ -24,7 +26,7 @@ export default function ResponseButtons(){
         </PrimaryButton>
         <PrimaryButton type="button" onClick={() => setShowCategories(true)}>
             <ArrowRightIcon/>
-            <span className="text-nowrap">Preguntar una vez más</span>
+            <span className="text-nowrap">Realizar una nueva búsqueda</span>
         </PrimaryButton>
     </section>
 }

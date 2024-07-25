@@ -20,7 +20,7 @@ export default function Home() {
           </div>
         }
         <section className="flex flex-col gap-4">
-          { !showCategories && response && <Markdown>{formatResponse(response)}</Markdown> }
+          { !showCategories && response && <Markdown>{formatResponse(response.result)}</Markdown> }
         </section>
         <HomeForm/>
       </section>

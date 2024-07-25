@@ -1,13 +1,14 @@
 import { usePersistStore } from "@/services/zustand";
+import { Response } from "@/types";
 
 import PrimaryButton from "../primary-button";
 import ThrashIcon from "../icons/thrash-icon";
 
-export default function RemoveAnswerButton({ answer }: { answer: string }){
+export default function RemoveAnswerButton({ result }: { result: string }){
     const { savedAnswers, setSavedAnswers } = usePersistStore(); 
 
     const removeAnswer = () => {
-        const filteredAnswers = savedAnswers.filter((ans: string) => ans !== answer);
+        const filteredAnswers = savedAnswers.filter((answer: Response) => answer.result !== result);
 
         setSavedAnswers(filteredAnswers);
     }

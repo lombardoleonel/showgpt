@@ -1,22 +1,7 @@
-import { create, StateCreator }from "zustand";
+import { create }from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-type GlobalStore = {
-    loading: boolean,
-    setLoading: (state: boolean) => void,
-    selectedCategories: string[],
-    setSelectedCategories: (category: string | string[]) => void,
-    showCategories: boolean,
-    setShowCategories: (state: boolean) => void,
-    answers: string[],
-    setAnswers: (answer: string) => void,
-    savedAnswers: string[],
-    setSavedAnswers: (answer: string | string[]) => void,
-    showSavedAnswers: boolean,
-    setShowSavedAnswers: (state: boolean) => void,
-    response: string,
-    setResponse: (response: string) => void
-}
+import { Response, GlobalStore, PersistStore, Filter } from "@/types";
 
 export const useGlobalStore = create<GlobalStore>(set => ({
     loading: false,
@@ -29,38 +14,40 @@ export const useGlobalStore = create<GlobalStore>(set => ({
                 ? ({ selectedCategories: state.selectedCategories.filter((cat: string) => category !== cat)})
                 : ({ selectedCategories: [...state.selectedCategories, category] })
     ),
+    selectedPlatforms: [],
+    setSelectedPlatforms: (platform: string | string[]) => set(state =>
+        Array.isArray(platform)
+            ? ({ selectedPlatforms: platform })
+            : state.selectedPlatforms.includes(platform)
+                ? ({ selectedPlatforms: state.selectedPlatforms.filter((cat: string) => platform !== cat)})
+                : ({ selectedPlatforms: [...state.selectedPlatforms, platform] })
+    ),
     showCategories: true,
     setShowCategories: (value: boolean) => set(state => ({ showCategories: value })),
     answers: [],
     setAnswers: (answer: string) => set(state => ({ answers: [...state.answers, answer]})),
-    savedAnswers: [],
-    setSavedAnswers: (answer: string | string[]) => set(state => 
-        Array.isArray(answer)
-            ? ({ savedAnswers: answer })
-            : state.savedAnswers.find(ans => ans === answer)
-                ? ({ savedAnswers: state.savedAnswers })
-                : ({ savedAnswers: [...state.savedAnswers, answer] })
-    ),
     showSavedAnswers: false,
     setShowSavedAnswers: (value: boolean) => set(state => ({ showSavedAnswers: value })),
-    response: "",
-    setResponse: (response: string) => set(state => ({ response: response }))
+    response: undefined,
+    setResponse: (response: Response) => set(state => ({ response: response })),
+    filters: [],
+    setFilters: (filter: Filter | Filter[]) => set(state =>
+        Array.isArray(filter)
+            ? ({ filters: filter })
+            : filter.type === "category"
+                ? ({ filters: [...state.filters.filter(f => f.type !== "category"), filter]})
+                : ({ filters: [...state.filters.filter(f => f.type !== "platform"), filter]})
+    )
 }))
-
-type PersistStore = {
-    savedAnswers: string[],
-    setSavedAnswers: (answer: string | string[]) => void,
-    getAnswers: () => string[]
-}
 
 export const usePersistStore = create<PersistStore>()(
     persist(
         (set, get) => ({
             savedAnswers: [],
-            setSavedAnswers: (answer: string | string[]) => set(state => 
+            setSavedAnswers: (answer: Response | Response[]) => set(state => 
                 Array.isArray(answer)
                     ? ({ savedAnswers: answer })
-                    : state.savedAnswers.find(ans => ans === answer)
+                    : state.savedAnswers.find(ans => ans.result === answer.result)
                         ? ({ savedAnswers: state.savedAnswers })
                         : ({ savedAnswers: [...state.savedAnswers, answer] })
             ),

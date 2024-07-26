@@ -3,6 +3,7 @@ import { Response } from "@/types";
 
 import PrimaryButton from "../primary-button";
 import ThrashIcon from "../icons/thrash-icon";
+import { toast } from "sonner";
 
 export default function RemoveAnswerButton({ result }: { result: string }){
     const { savedAnswers, setSavedAnswers } = usePersistStore(); 
@@ -11,6 +12,8 @@ export default function RemoveAnswerButton({ result }: { result: string }){
         const filteredAnswers = savedAnswers.filter((answer: Response) => answer.result !== result);
 
         setSavedAnswers(filteredAnswers);
+
+        toast.success("Respuesta eliminada.");
     }
 
     return <PrimaryButton type="button" onClick={removeAnswer}>

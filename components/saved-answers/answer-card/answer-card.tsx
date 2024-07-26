@@ -13,7 +13,7 @@ export default function AnswerCard({ result, categories, platforms }: { result: 
     const [expand, setExpand] = useState<boolean>();
 
     return <div className="flex flex-col gap-4 w-full overflow-hidden bg-black bg-opacity-30 p-4 rounded-lg border-2 border-zinc-800 border-opacity-50">
-        <section className="flex gap-8 justify-between">
+        <section className="flex flex-col min-[800px]:flex-row min-[800px]:justify-between gap-2 min-[800px]:gap-8">
             <CardCategories categories={categories}/>
             <CardPlatforms platforms={platforms}/>
         </section>

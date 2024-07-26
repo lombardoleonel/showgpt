@@ -18,7 +18,7 @@ export default function CategoryFilterSelect(){
 
     return <div className="flex flex-col gap-2">
         <select onChange={handleChange} id="category-filter" className="bg-black bg-opacity-30 py-1 px-2 rounded-lg border-2 border-zinc-800 border-opacity-50 text-xs font-semibold">
-            <option selected disabled>Selecciona una categoría</option>
+            <option selected disabled>Seleccioná una categoría</option>
             {
                 categories.map(cat => <option key={cat} className="bg-black">{cat}</option>)
             }

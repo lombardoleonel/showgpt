@@ -7,7 +7,7 @@ const groq = createOpenAI({
  });
 
 export default async function createQuery(categories: Array<string>, platforms: Array<string>, details: string){
-    const format = `Máximo 250 carácteres por reseña. Todo redactado, evitá las listas e items. Destaca con bold el título de la película/serie y aclaraciones importantes con emphasis. Separa cada reseña con saltos de línea.`;
+    const format = `Máximo 250 carácteres por reseña. Todo redactado, evitá las listas e items. Destaca con bold el título de la película/serie y aclaraciones importantes con emphasis. La reseña debe comenzar de la siguiente manera: Título (Duración (en caso de ser película duración en horas y minutos, en caso de ser serie total de temporadas). Separa cada reseña con saltos de línea.`;
 
     const prompt = `No sé qué serie o película ver, necesito tu ayuda. Mis categorías de interés son ${categories}.  Es sumamente importante que consideres esta información y bases tu búsqueda y resultados en ella: ${details}. Recomienda 3 series y/o películas que se adapten a mis categorías de interés y estén en la/s plataforma/s ${platforms}, sin excepción alguna, no me interesan las series/películas de ninguna otra plataforma, solo las mencionadas. Intenta seleccionar series y/o películas recientes y modernas, mientras más actuales a la fecha actual, mucho mejor. Sumamente importante que tu selección filtre como primer parámetro la popularidad y repercusión de la serie/película y mejor valoración. Incluye valoraciones positivas y negativas, categoría, plataforma en la que encontrarla y motivos para verla. ${format}`;
 

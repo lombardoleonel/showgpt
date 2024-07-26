@@ -10,7 +10,7 @@ export default function Categories(){
     return <section className="flex flex-col gap-4">
         <div className="flex gap-2 justify-center items-center">
             <CategoryIcon className="w-6 h-6"/>
-            <h2 className="text-xl font-semibold text-center">Seleccioná tus categorías de interés</h2>
+            <h2 className="text-xl font-semibold text-center text-nowrap">Categorías de interés</h2>
         </div>
         <div className="flex justify-center items-center gap-2 flex-wrap min-w-[350px]">
             {   

@@ -23,8 +23,8 @@ export default function SavedAnswers(){
 
     return savedAnswers && savedAnswers.length
         ? <section className="flex flex-col items-center gap-8 max-w-[800px] w-full">
-            <div className="flex flex-col items-end gap-2 w-full">
-                <div className="flex gap-2 items-center">
+            <div className="flex flex-col min-[650px]:flex-row items-center min-[650px]items-end gap-2 w-full">
+                <div className="flex flex-col min-[650px]:flex-row gap-2 items-center">
                     <p className="text-xs font-semibold">Filtros</p>
                     <CategoryFilterSelect/>
                     <PlatformFilterSelect/>

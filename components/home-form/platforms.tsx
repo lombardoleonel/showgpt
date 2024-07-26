@@ -10,7 +10,7 @@ export default function Platforms(){
     return <section className="flex flex-col gap-4">
         <div className="flex gap-2 justify-center items-center">
             <DeviceLaptopIcon className="w-6 h-6"/>
-            <h2 className="text-xl font-semibold text-center">Plataformas de preferencia</h2>
+            <h2 className="text-xl font-semibold text-center text-nowrap">Plataformas de preferencia</h2>
         </div>
         <div className="flex justify-center items-center gap-2 flex-wrap min-w-[350px]">
             {   
